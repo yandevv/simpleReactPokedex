@@ -1,54 +1,39 @@
-# React + TypeScript + Vite
+<h1>
+  <img src="public/pokeball-pokemon-svgrepo-com.svg" height="28" alt="Pokéball Image"/>
+  React Pokédex
+  <img src="public/pokeball-pokemon-svgrepo-com.svg" height="28" alt="Pokéball Image"/>
+</h1>
+Pokédex application made with React to consume and display Pokémon search from PokéAPI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="public/searchingPokemons.gif" height="400" style="margin-top: 12px;" alt="Pokémon search demo visualization"/>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ⚙️ Installation
+For being a React application, it is necessary to clone this repository first in your local device:
+```sh
+$ git clone https://github.com/yandevv/simpleReactPokedex
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Now, with project downloaded, it is possible to download and install the Node dependencies:
+```sh
+$ npm install
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Usage
+> Node version >= 20.1 and npm version >= 8.19.4 required
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+It is possible to run the project in development (with HMR and Typescript) or in production.
+
+To run the project in development, you just need [install](#installation) the project successfully and run:
+```sh
+$ npm run dev
+```
+
+Or if you need to run in production, build the project running:
+```sh
+$ npm run build
+```
+
+And run:
+```sh
+$ npm run preview
 ```
