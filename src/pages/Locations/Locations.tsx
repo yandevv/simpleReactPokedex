@@ -77,6 +77,7 @@ function Locations() {
 
                 return (
                   <LocationCard
+                    key={location.id}
                     name={location.name}
                     id={location.id}
                     areas={location.areas}
