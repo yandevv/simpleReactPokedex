@@ -43,9 +43,15 @@ function PokemonInfo() {
 
   return (
     <>
-      <header id="header">
+      <header
+        id="header"
+        className={"flex gap-10 items-center justify-center"}
+      >
         <Link to={"/"}>
           <h1 className={"text-white/87"}>Kanto's Pokédex</h1>
+        </Link>
+        <Link to={"/locations"}>
+          <h2 className={"text-xl text-white/87 font-normal underline underline-offset-3"}>Locations</h2>
         </Link>
       </header>
       <main>
