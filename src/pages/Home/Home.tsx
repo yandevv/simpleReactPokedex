@@ -1,4 +1,5 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 import './Home.css';
 
@@ -76,14 +77,18 @@ function App() {
                 }
 
                 return (
-                  <PokemonCard
+                  <Link
                     key={pokemon.id}
-                    name={pokemon.name}
-                    id={pokemon.id}
-                    weight={pokemon.weight}
-                    height={pokemon.height}
-                    sprite={pokemon.sprite}
-                  />
+                    to={`/pokemon/${pokemon.id}`}
+                  >
+                    <PokemonCard
+                      name={pokemon.name}
+                      id={pokemon.id}
+                      weight={pokemon.weight}
+                      height={pokemon.height}
+                      sprite={pokemon.sprite}
+                    />
+                  </Link>
                 );
               })}
             </div>
