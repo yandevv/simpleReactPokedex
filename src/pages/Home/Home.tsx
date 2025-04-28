@@ -3,31 +3,25 @@ import { Link } from 'react-router';
 
 import './Home.css';
 
-import PokemonCard from '../../components/PokemonCard';
+import { PokemonData } from '../../types/pokemonTypes';
 
-interface PokemonInfoInterface {
-  name: string,
-  id: number,
-  weight: number,
-  height: number,
-  sprite: string
-}
+import PokemonCard from '../../components/PokemonCard/PokemonCard';
 
 function App() {
   const [inputPokemonName, setInputPokemonName] = useState<string>();
-  const [allPokemonsInfo, setAllPokemonsInfo] = useState<PokemonInfoInterface[]>();
+  const [allPokemonsInfo, setAllPokemonsInfo] = useState<PokemonData[]>([]);
 
   useEffect(() => {
     fetchAllLegacyPokemons();
 
-    return () => setAllPokemonsInfo(undefined);
+    return () => setAllPokemonsInfo([]);
   }, []);
 
   async function fetchAllLegacyPokemons() {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then(async json => {
-      const pokemonsInfo: PokemonInfoInterface[] = [];
+      const pokemonsInfo: PokemonData[] = [];
       for(const pokemon of json.results) {
         await fetch(pokemon.url)
         .then(response => response.json())
@@ -37,11 +31,14 @@ function App() {
             id: json.id,
             weight: json.weight,
             height: json.height,
-            sprite: json.sprites.front_default
+            sprite: json.sprites.front_default,
+            types: json.types.map((type: { type: { name: string } }) => {
+              const firstLetter = type.type.name.charAt(0).toUpperCase();
+              return firstLetter + type.type.name.slice(1);
+            })
           });
         });
       }
-
       setAllPokemonsInfo(pokemonsInfo);
     });
   }
@@ -49,10 +46,12 @@ function App() {
   return (
     <>
       <header id="header">
-        <h1>Kanto's Pokédex</h1>
+        <Link to={"/"}>
+          <h1 className={"text-white/87"}>Kanto's Pokédex</h1>
+        </Link>
       </header>
       <main>
-        <div className={"flex flex-col gap-2 mt-4"}>
+        <div className={"flex flex-col gap-2 mt-4 justify-between"}>
           <label
             htmlFor="pokemonNameInput"
             className={"text-xl"}
@@ -66,7 +65,7 @@ function App() {
             onChange={e => setInputPokemonName(e.target.value ?? undefined)}
           />
         </div>
-        {allPokemonsInfo ?
+        {allPokemonsInfo.length > 0 ?
           (
             <div
               className={"w-[80%] flex flex-wrap justify-center gap-x-4 gap-y-8 mt-12 mx-auto"}
@@ -87,6 +86,7 @@ function App() {
                       weight={pokemon.weight}
                       height={pokemon.height}
                       sprite={pokemon.sprite}
+                      types={pokemon.types}
                     />
                   </Link>
                 );
