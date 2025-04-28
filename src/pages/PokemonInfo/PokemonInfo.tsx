@@ -7,7 +7,7 @@ import {
   useParams
 } from 'react-router';
 
-import '../Home/Home.css';
+import '../AllPokemons/AllPokemons.css';
 
 import { PokemonData, PokemonStats } from '../../types/pokemonTypes';
 
