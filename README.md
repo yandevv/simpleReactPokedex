@@ -3,9 +3,21 @@
   React Pokédex
   <img src="public/pokeball-pokemon-svgrepo-com.svg" height="28" alt="Pokéball Image"/>
 </h1>
-Pokédex application made with React to consume and display Pokémon search from PokéAPI.
 
-<img src="public/searchingPokemons.gif" height="400" style="margin-top: 12px;" alt="Pokémon search demo visualization"/>
+Pokédex application made with React to consume and display Pokémons and Locations with their areas of Kanto's region from PokéAPI.
+
+### 🎯 Main Features
+Search through all classic Kanto's pokémons.
+<img src="public/searchingAllKantoPokemons.gif" height="400" style="margin-top: 12px; margin-bottom: 24px;" alt="Pokémon searching all Kanto's classic pokémons."/>
+
+Inspect specific pokémons with their base stats.
+<img src="public/searchingAndPeekingPokemons.gif" height="400" style="margin-top: 12px; margin-bottom: 24px;" alt="Searching specific pokémons showing their base stats."/>
+
+Search through all Kanto's locations with their respective areas.
+<img src="public/searchingAllKantoLocations.gif" height="400" style="margin-top: 12px; margin-bottom: 24px;" alt="Searching all Kanto's locations with their areas."/>
+
+Inspect specific areas with their Pokémons encounters.
+<img src="public/exploringLocationsAreas.gif" height="400" style="margin-top: 12px;" alt="Searching through areas showing their Pokémons encounters."/>
 
 ## ⚙️ Installation
 For being a React application, it is necessary to clone this repository first in your local device:
